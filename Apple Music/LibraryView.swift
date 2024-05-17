@@ -7,18 +7,16 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct LibraryView: View {
     var body: some View {
+        
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+           Tab()
         }
         .padding()
     }
 }
 
 #Preview {
-    ContentView()
+    LibraryView()
 }
