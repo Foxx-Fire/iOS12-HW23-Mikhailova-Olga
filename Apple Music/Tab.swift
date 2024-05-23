@@ -7,27 +7,11 @@
 
 import SwiftUI
 
-struct Media: View {
-    var body: some View {
-        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Hello, world!@*/Text("Hello, world!")/*@END_MENU_TOKEN@*/
-    }
-}
-
-struct Radio: View {
-    var body: some View {
-        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Hello, world!@*/Text("Hello, world!")/*@END_MENU_TOKEN@*/
-    }
-}
-
-struct Search: View {
-    var body: some View {
-        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Hello, world!@*/Text("Hello, world!")/*@END_MENU_TOKEN@*/
-    }
-}
-
 struct Tab: View {
+    var backStackColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
     var body: some View {
-        TabView {
+        
+        TabView() {
             Media()
                 .tabItem {
                     Label("Медиатека", systemImage: "music.note.house.fill")
@@ -42,6 +26,11 @@ struct Tab: View {
                 }
         }
         .accentColor(Color.red)
+//        .onAppear() {
+//            UITabBar.appearance().backgroundColor = backStackColor
+//            UITabBar.appearance().shadowImage = UIImage(named: "tab-shadow")?.withRenderingMode(.alwaysTemplate)
+//            UITabBar.appearance().backgroundColor = UIColor.darkGray
+//        }
     }
 }
 
