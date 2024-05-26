@@ -25,7 +25,7 @@ struct MediaModel: Identifiable, Hashable {
             MediaModel(logo: "person.2.crop.square.stack", name: "Сборники"),
             MediaModel(logo: "music.quarternote.3", name: "Авторы"),
             MediaModel(logo: "arrow.down.circle", name: "Загружено"),
-            MediaModel(logo: "house", name: "Что-то")
+            MediaModel(logo: "house", name: " Домашняя колекция")
         ]
     }
 }

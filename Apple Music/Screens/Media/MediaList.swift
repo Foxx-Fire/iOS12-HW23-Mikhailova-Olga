@@ -8,38 +8,55 @@
 import SwiftUI
 
 struct MediaList: View {
-    var itemsMedia = MediaModel.getMedia()
-    @ObservedObject var functionsMedia = MediaFunctionality()
+    @Environment(\.dismiss) var dismiss
+    @ObservedObject var functionsMedia = MediaFunctionality(medias: MediaModel.getMedia())
     
     var body: some View {
         NavigationStack {
-            List(itemsMedia) { item in
-                HStack {
-                    Button {
-                        functionsMedia.isChosedMediaItem(media: item)
-                    } label: {
-                        if item.isChoosed {
-                            Image(systemName: "checkmark.circle.fill")
-                                .foregroundStyle(Color.red)
-                        } else {
-                            Image(systemName: "circle")
+            
+            List {
+                ForEach(functionsMedia.medias) { item in
+                    HStack {
+                        Button {
+                            functionsMedia.isChosedMediaItem(media: item)
+                        } label: {
+                            if item.isChoosed {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .foregroundStyle(Color.red)
+                            } else {
+                                Image(systemName: "circle")
+                            }
                         }
+                        Image(systemName: item.logo)
+                            .foregroundStyle(Color.red)
+                            .frame(width: 20, height: 20)
+                        Text(item.name)
+                            .padding(10)
                     }
-                    Image(systemName: item.logo)
-                        .foregroundStyle(Color.red)
-                        .frame(width: 20, height: 20)
-                   // NavigationLink(item.name, value: item)
-                    Text(item.name)
-                        .padding(10)
                 }
+                .onMove(perform: move)
             }
             .listStyle(InsetListStyle())
-//            .navigationDestination(for: MediaModel.self) { media in
-//                MediaDetails()
-           // }
+            .navigationTitle("Медиатека")
+            .environment(\.editMode, Binding.constant(EditMode.active))
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        dismiss()
+                    }, label: {
+                        Text("Готово")
+                    })
+                    .foregroundStyle(Color.red)
+                }
+            }
         }
     }
+    
+    func move(from source: IndexSet, to destination: Int ) {
+        functionsMedia.medias.move(fromOffsets: source, toOffset: destination)
+    }
 }
+
 
 #Preview {
     MediaList()

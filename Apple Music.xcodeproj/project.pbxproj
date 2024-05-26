@@ -15,9 +15,13 @@
 		0BD81C872BFF9623003AE646 /* Radio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD81C802BFF9623003AE646 /* Radio.swift */; };
 		0BD81C882BFF9623003AE646 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD81C812BFF9623003AE646 /* Search.swift */; };
 		0BD81C892BFF9623003AE646 /* MediaFunctionality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD81C832BFF9623003AE646 /* MediaFunctionality.swift */; };
-		0BD81C8A2BFF9623003AE646 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD81C842BFF9623003AE646 /* Media.swift */; };
+		0BD81C8A2BFF9623003AE646 /* MediaFirstScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD81C842BFF9623003AE646 /* MediaFirstScreen.swift */; };
 		0BD81C8B2BFF9623003AE646 /* MediaList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD81C852BFF9623003AE646 /* MediaList.swift */; };
 		0BD81C8C2BFF9623003AE646 /* MediaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD81C862BFF9623003AE646 /* MediaModel.swift */; };
+		0BF5FB052C00EE4B004B0800 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF5FB042C00EE4B004B0800 /* Player.swift */; };
+		0BF88A6E2C036D8E0006E393 /* PlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF88A6D2C036D8E0006E393 /* PlayerManager.swift */; };
+		0BF88A722C0373F10006E393 /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF88A712C0373F10006E393 /* PlayerModel.swift */; };
+		0BF88A782C037BAE0006E393 /* Led Zeppelin "Kashmir".mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0BF88A772C037BAE0006E393 /* Led Zeppelin "Kashmir".mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,9 +34,13 @@
 		0BD81C802BFF9623003AE646 /* Radio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Radio.swift; sourceTree = "<group>"; };
 		0BD81C812BFF9623003AE646 /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		0BD81C832BFF9623003AE646 /* MediaFunctionality.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaFunctionality.swift; sourceTree = "<group>"; };
-		0BD81C842BFF9623003AE646 /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
+		0BD81C842BFF9623003AE646 /* MediaFirstScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaFirstScreen.swift; sourceTree = "<group>"; };
 		0BD81C852BFF9623003AE646 /* MediaList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaList.swift; sourceTree = "<group>"; };
 		0BD81C862BFF9623003AE646 /* MediaModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaModel.swift; sourceTree = "<group>"; };
+		0BF5FB042C00EE4B004B0800 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		0BF88A6D2C036D8E0006E393 /* PlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerManager.swift; sourceTree = "<group>"; };
+		0BF88A712C0373F10006E393 /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
+		0BF88A772C037BAE0006E393 /* Led Zeppelin "Kashmir".mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Led Zeppelin \"Kashmir\".mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +78,7 @@
 				0BD560D72BF7E73800FED19E /* LibraryView.swift */,
 				0BD560E32BF7F25A00FED19E /* Tab.swift */,
 				0BD560D92BF7E73B00FED19E /* Assets.xcassets */,
+				0BF88A772C037BAE0006E393 /* Led Zeppelin "Kashmir".mp3 */,
 				0BD560DB2BF7E73B00FED19E /* Preview Content */,
 			);
 			path = "Apple Music";
@@ -96,12 +105,23 @@
 		0BD81C822BFF9623003AE646 /* Media */ = {
 			isa = PBXGroup;
 			children = (
-				0BD81C842BFF9623003AE646 /* Media.swift */,
+				0BD81C842BFF9623003AE646 /* MediaFirstScreen.swift */,
 				0BD81C852BFF9623003AE646 /* MediaList.swift */,
 				0BD81C862BFF9623003AE646 /* MediaModel.swift */,
 				0BD81C832BFF9623003AE646 /* MediaFunctionality.swift */,
+				0BF88A6C2C036D6F0006E393 /* Player */,
 			);
 			path = Media;
+			sourceTree = "<group>";
+		};
+		0BF88A6C2C036D6F0006E393 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				0BF5FB042C00EE4B004B0800 /* Player.swift */,
+				0BF88A6D2C036D8E0006E393 /* PlayerManager.swift */,
+				0BF88A712C0373F10006E393 /* PlayerModel.swift */,
+			);
+			path = Player;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BD560DD2BF7E73B00FED19E /* Preview Assets.xcassets in Resources */,
+				0BF88A782C037BAE0006E393 /* Led Zeppelin "Kashmir".mp3 in Resources */,
 				0BD560DA2BF7E73B00FED19E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,11 +198,14 @@
 				0BD560E42BF7F25A00FED19E /* Tab.swift in Sources */,
 				0BD81C872BFF9623003AE646 /* Radio.swift in Sources */,
 				0BD81C8C2BFF9623003AE646 /* MediaModel.swift in Sources */,
-				0BD81C8A2BFF9623003AE646 /* Media.swift in Sources */,
+				0BD81C8A2BFF9623003AE646 /* MediaFirstScreen.swift in Sources */,
 				0BD81C882BFF9623003AE646 /* Search.swift in Sources */,
 				0BD560D82BF7E73800FED19E /* LibraryView.swift in Sources */,
+				0BF88A722C0373F10006E393 /* PlayerModel.swift in Sources */,
+				0BF88A6E2C036D8E0006E393 /* PlayerManager.swift in Sources */,
 				0BD81C892BFF9623003AE646 /* MediaFunctionality.swift in Sources */,
 				0BD81C8B2BFF9623003AE646 /* MediaList.swift in Sources */,
+				0BF5FB052C00EE4B004B0800 /* Player.swift in Sources */,
 				0BD560D62BF7E73800FED19E /* Apple_MusicApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
