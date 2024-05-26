@@ -28,12 +28,11 @@ struct MediaFirstScreen: View {
                 }
                 .padding()
                 Spacer()
-
+                
             }
         }
     }
 }
-
 
 #Preview {
     MediaFirstScreen()

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MediaFunctionality: ObservableObject {
+final class MediaFunctionality: ObservableObject {
     @Published var medias:[MediaModel]
     
     init(medias: [MediaModel]) {

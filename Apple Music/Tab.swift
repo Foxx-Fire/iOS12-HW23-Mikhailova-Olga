@@ -19,51 +19,52 @@ struct Tab: View {
     @State var showAddView = false
     
     var body: some View {
-            TabView(selection: $selectedTab) {
-                NavigationStack {
-                    MediaFirstScreen()
-                    Player()
-                        .navigationTitle(selectedTab.rawValue)
-                        .toolbar {
-                            ToolbarItem(placement: .navigationBarTrailing) {
-                                Button("Править", action: { showAddView = true })
-                                    .foregroundStyle(Color.red)
-                                
-                                    .fullScreenCover(isPresented: $showAddView, content: { MediaList() })
-                    }
-                }
-                }
-                    .tabItem {
-                        Label("Медиатека", systemImage: "music.note.house.fill")
-                            .tag(Tabs.media)
-                    }
-                NavigationStack {
-                    Radio()
-                        .navigationTitle(selectedTab.rawValue)
-                }
-                    .tabItem {
-                        Label("Радио", systemImage: "dot.radiowaves.left.and.right")
-                            .tag(Tabs.radio)
-                    }
-                NavigationStack {
-                    Search()
-                        .navigationTitle(selectedTab.rawValue)
-                }
-                    .tabItem {
-                        Label("Поиск", systemImage: "magnifyingglass")
-                            .tag(Tabs.search)
+        TabView(selection: $selectedTab) {
+            NavigationStack {
+                MediaFirstScreen()
+                Player()
+                    .navigationTitle(selectedTab.rawValue)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button("Править", action: { showAddView = true })
+                                .foregroundStyle(Color.red)
+                            
+                                .fullScreenCover(isPresented: $showAddView, content: { MediaList() })
+                        }
                     }
             }
-           
-            .accentColor(Color.red)
-            //        .onAppear() {
-            //            UITabBar.appearance().backgroundColor = backStackColor
-            //            UITabBar.appearance().shadowImage = UIImage(named: "tab-shadow")?.withRenderingMode(.alwaysTemplate)
-            //            UITabBar.appearance().backgroundColor = UIColor.darkGray
-            //  
+            .tabItem {
+                Label("Медиатека", systemImage: "music.note.house.fill")
+                    .tag(Tabs.media)
+            }
+            NavigationStack {
+                Radio()
+                    .navigationTitle(selectedTab.rawValue)
+            }
+            .tabItem {
+                Label("Радио", systemImage: "dot.radiowaves.left.and.right")
+                    .tag(Tabs.radio)
+            }
+            NavigationStack {
+                Search()
+                    .navigationTitle(selectedTab.rawValue)
+            }
+            .tabItem {
+                Label("Поиск", systemImage: "magnifyingglass")
+                    .tag(Tabs.search)
+            }
+        }
+        .accentColor(Color.red)
+        .onAppear() {
+            let appearance = UITabBarAppearance()
+            appearance.shadowColor = .black
+            appearance.backgroundColor = backStackColor
+            UITabBar.appearance().scrollEdgeAppearance = appearance
+        }
     }
 }
 
 #Preview {
     Tab()
+        .environmentObject(PlayerManager())
 }

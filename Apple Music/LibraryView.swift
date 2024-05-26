@@ -22,4 +22,5 @@ struct LibraryView: View {
 
 #Preview {
     LibraryView()
+        .environmentObject(PlayerManager())
 }

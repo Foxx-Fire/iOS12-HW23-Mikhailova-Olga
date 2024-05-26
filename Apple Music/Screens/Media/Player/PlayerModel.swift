@@ -16,11 +16,9 @@ final class PlayerModel: ObservableObject {
 
 struct Songs {
     let id = UUID()
-    let title: String
-    let duration: TimeInterval
     let track: String
     let image: String
     
-    static var data = Songs(title: "Enjoy", duration: 70, track: "", image: "LZ")
+    static var getData = Songs(track: "Led Zeppelin-The Ocean", image: "LZ")
 }
-// Led Zeppelin \"Kashmir\"
+
