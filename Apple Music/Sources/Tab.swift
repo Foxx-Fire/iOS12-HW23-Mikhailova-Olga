@@ -17,12 +17,13 @@ struct Tab: View {
     var backStackColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
     @State var selectedTab: Tabs = .media
     @State var showAddView = false
+    @State var expand = false
     
     var body: some View {
         TabView(selection: $selectedTab) {
             NavigationStack {
                 MediaFirstScreen()
-                Player(expand: $expand)
+               // Player(expand: $expand)
                     .navigationTitle(selectedTab.rawValue)
                     .toolbar {
 //                        ToolbarItem(placement: .navigationBarTrailing) {
@@ -67,6 +68,9 @@ struct Tab: View {
                 Label("Поиск", systemImage: "magnifyingglass")
                     .tag(Tabs.search)
             }
+        }
+        .safeAreaInset(edge: .bottom) {
+            Player(expand: $expand)
         }
         .accentColor(Color.red)
         .onAppear() {
