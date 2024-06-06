@@ -74,7 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				0BD7C23D2C11CB6F00EAE890 /* Resources */,
-				0BD560DB2BF7E73B00FED19E /* Preview Content */,
 				0BD7C23C2C11CB5D00EAE890 /* Sources */,
 			);
 			path = "Apple Music";
@@ -102,6 +101,7 @@
 		0BD7C23D2C11CB6F00EAE890 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0BD560DB2BF7E73B00FED19E /* Preview Content */,
 				0BD560D92BF7E73B00FED19E /* Assets.xcassets */,
 				0BF88A7F2C03B1800006E393 /* Led Zeppelin-The Ocean.mp3 */,
 			);
