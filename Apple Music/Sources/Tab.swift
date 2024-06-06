@@ -22,21 +22,32 @@ struct Tab: View {
         TabView(selection: $selectedTab) {
             NavigationStack {
                 MediaFirstScreen()
-                Player()
+                Player(expand: $expand)
                     .navigationTitle(selectedTab.rawValue)
                     .toolbar {
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            Button("Править", action: { showAddView = true })
-                                .foregroundStyle(Color.red)
-                            
-                                .fullScreenCover(isPresented: $showAddView, content: { MediaList() })
+//                        ToolbarItem(placement: .navigationBarTrailing) {
+//                            Button("Править", action: { showAddView = true; MediaList() })
+//                                .foregroundStyle(Color.red)
+//                                
+//                                .fullScreenCover(isPresented: $showAddView, content: { MediaList() })
+//                        }
+                        
+                        NavigationLink {
+                            MediaList()
+                                .navigationTitle("Медиатека")
+                               // .tag(Tabs.media)
+                        } label: {
+                            Text("Править")
                         }
                     }
             }
             .tabItem {
                 Label("Медиатека", systemImage: "music.note.house.fill")
-                    .tag(Tabs.media)
+                  //  .tag(Tabs.media)
             }
+           
+            //MARK: Radio()
+            
             NavigationStack {
                 Radio()
                     .navigationTitle(selectedTab.rawValue)
@@ -45,6 +56,9 @@ struct Tab: View {
                 Label("Радио", systemImage: "dot.radiowaves.left.and.right")
                     .tag(Tabs.radio)
             }
+            
+            //MARK: Search()
+            
             NavigationStack {
                 Search()
                     .navigationTitle(selectedTab.rawValue)

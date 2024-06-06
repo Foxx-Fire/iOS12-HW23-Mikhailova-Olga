@@ -31,26 +31,36 @@ struct MediaList: View {
                             .foregroundStyle(Color.red)
                             .frame(width: 20, height: 20)
                         Text(item.name)
-                            .padding(10)
+                            .padding(7)
                     }
                 }
                 .onMove(perform: move)
             }
             .listStyle(InsetListStyle())
-            .navigationTitle("Медиатека")
+            // .navigationTitle("Медиатека")
             .environment(\.editMode, Binding.constant(EditMode.active))
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        dismiss()
-                    }, label: {
-                        Text("Готово")
-                    })
-                    .foregroundStyle(Color.red)
-                }
+                //  ToolbarItem(placement: .navigationBarTrailing) {
+                //                    Button(action: {
+                //                        dismiss()
+                //                    }, label: {
+                //                        Text("Готово")
+                //                    })
+                //                    .foregroundStyle(Color.red)
+                //  } // ToolbarItem
+                
+                NavigationLink { }
+            label: {
+                Button {
+                    dismiss()
+                } label: {
+                    Text("Готово")
+               }
             }
         }
+            .navigationBarBackButtonHidden(true)
     }
+}
     
     func move(from source: IndexSet, to destination: Int ) {
         functionsMedia.medias.move(fromOffsets: source, toOffset: destination)
