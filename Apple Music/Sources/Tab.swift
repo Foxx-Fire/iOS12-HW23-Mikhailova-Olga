@@ -5,6 +5,9 @@
 //  Created by FoxxFire on 17.05.2024.
 //
 
+
+// https://www.youtube.com/watch?v=J7yTsfsbRwc
+
 import SwiftUI
 
 enum Tabs: String {
@@ -20,68 +23,53 @@ struct Tab: View {
     @State var expand = false
     
     var body: some View {
-        TabView(selection: $selectedTab) {
-            NavigationStack {
-                MediaFirstScreen()
-               // Player(expand: $expand)
-                    .navigationTitle(selectedTab.rawValue)
-                    .toolbar {
-//                        ToolbarItem(placement: .navigationBarTrailing) {
-//                            Button("Править", action: { showAddView = true; MediaList() })
-//                                .foregroundStyle(Color.red)
-//                                
-//                                .fullScreenCover(isPresented: $showAddView, content: { MediaList() })
-//                        }
-                        
-                        NavigationLink {
-                            MediaList()
-                                .navigationTitle("Медиатека")
-                               // .tag(Tabs.media)
-                        } label: {
-                            Text("Править")
-                        }
-                    }
-            }
-            .tabItem {
-                Label("Медиатека", systemImage: "music.note.house.fill")
-                  //  .tag(Tabs.media)
-            }
-           
-            //MARK: Radio()
-            
-            NavigationStack {
-                Radio()
-                    .navigationTitle(selectedTab.rawValue)
-            }
-            .tabItem {
-                Label("Радио", systemImage: "dot.radiowaves.left.and.right")
-                    .tag(Tabs.radio)
-            }
-            
-            //MARK: Search()
-            
-            NavigationStack {
-                Search()
-                    .navigationTitle(selectedTab.rawValue)
-            }
-            .tabItem {
-                Label("Поиск", systemImage: "magnifyingglass")
-                    .tag(Tabs.search)
-            }
-        }
+        TabView{
+            Group {
+                NavigationStack {
+                    MediaChapter()
+                }
+                .tabItem {
+                    Label("Медиатека", systemImage: "music.note.house.fill")
+                }
+                NavigationStack {
+                    Radio()
+                }
+                .tabItem {
+                    Label("Радио", systemImage: "dot.radiowaves.left.and.right")
+                }
+                NavigationStack {
+                    Search()
+                }
+                .tabItem {
+                    Label("Поиск", systemImage: "magnifyingglass")
+                }
+            } // Group
+            //                .toolbar {
+            //                    ToolbarItem(placement: .bottomBar) {
+            //                        Player()
+            //                    }
+            //                } //toolbar
+        } // tabView
+        .tint(Color.red)
         .safeAreaInset(edge: .bottom) {
-            Player(expand: $expand)
+            Player()
         }
-        .accentColor(Color.red)
-        .onAppear() {
-            let appearance = UITabBarAppearance()
-            appearance.shadowColor = .black
-            appearance.backgroundColor = backStackColor
-            UITabBar.appearance().scrollEdgeAppearance = appearance
-        }
+        //        .onAppear() {
+        //            let appearance = UITabBarAppearance()
+        //            appearance.shadowColor = .black
+        //            appearance.backgroundColor = backStackColor
+        //            UITabBar.appearance().scrollEdgeAppearance = appearance
+        //        }
+        //        
+        
+        
+        //                .safeAreaInset(edge: .bottom) {
+        //                    Player()
+        //                }
     }
 }
-
+    
+ 
 #Preview {
     Tab()
         .environmentObject(PlayerManager())
